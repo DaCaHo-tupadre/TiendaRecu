@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('descripcion');
             $table->integer('unidades');
             $table->double('precio_unitario');
-            $table->string('categoria');
+            $table->unsignedBigInteger('categoria');
             $table->timestamps();
+            $table->foreign('categoria')->references('id_categoria')->on('categorias');
         });
     }
 
