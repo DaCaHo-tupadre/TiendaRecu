@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\Log\LogAuth;
 use App\Http\Controllers\Log\RegisterAuth;
 use App\Http\Controllers\ProductoController;
@@ -48,10 +49,10 @@ Route::get('/usuarios/edit/{id}', [UserController::class, 'edit'])->name('editUs
 Route::post('/usuarios/update', [UserController::class, 'update'])->name('updateUsuario')->middleware('rol');
 
 Route::view('/categorias','Categorias.categorias');
-Route::get('/categorias',[UserController::class, 'index'])->name('verCategorias');
-Route::get('/categorias/{id}',[UserController::class, 'edit'])->name('editarCategoria')->middleware('rol');
-Route::post('/categorias/storeCategoria',[UserController::class, 'store'])->name('storeCategoria')->middleware('rol');
-Route::delete('/categorias',[UserController::class, 'destroy'])->name('destroyCategoria')->middleware('rol');
-Route::get('/categorias/edit/{id}', [UserController::class, 'edit'])->name('editCategoria')->middleware('rol');
-Route::post('/categorias/update', [UserController::class, 'update'])->name('updateCategoria')->middleware('rol');
+Route::get('/categorias',[CategoriaController::class, 'index'])->name('verCategorias');
+Route::get('/categorias/{id}',[CategoriaController::class, 'edit'])->name('editarCategoria')->middleware('rol');
+Route::post('/categorias/storeCategoria',[CategoriaController::class, 'store'])->name('storeCategoria')->middleware('rol');
+Route::delete('/categorias',[CategoriaController::class, 'destroy'])->name('destroyCategoria')->middleware('rol');
+Route::get('/categorias/edit/{id}', [CategoriaController::class, 'edit'])->name('editCategoria')->middleware('rol');
+Route::post('/categorias/update', [CategoriaController::class, 'update'])->name('updateCategoria')->middleware('rol');
 

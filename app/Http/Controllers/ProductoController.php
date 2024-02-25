@@ -51,7 +51,7 @@ class ProductoController extends Controller
             'categoria' => 'required|exists:categorias,id_categoria',
         ]);
 
-        $producto = Producto::findOrFail($request->input('id_producto'));
+        $producto = Producto::findOrFail($request->input('id'));
 
         // Actualizar el producto
         $producto->update($request->all());
@@ -61,6 +61,7 @@ class ProductoController extends Controller
 
     public function destroy(Request $request)
     {
+        //dd($request);
         $idProducto = $request->input('id_producto');
         $producto = Producto::findOrFail($idProducto);
         $producto->delete();
